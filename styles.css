@@ -15,7 +15,8 @@ body {
   margin:0;
   color:var(--ink);
   background:#fff;
-  font-family:Cairo,Arial,sans-serif
+  font-family:Cairo,Arial,sans-serif;
+  overflow-x:hidden
 }
 .shell {
   max-width:1400px;
@@ -680,11 +681,16 @@ footer {
     font-size:9px
   }
   .header {
+    display:grid;
+    grid-template-columns:1fr auto;
     height:auto;
-    min-height:82px;
-    flex-wrap:wrap;
+    min-height:0;
     padding:12px 0;
     gap:12px
+  }
+  .brand {
+    grid-column:1;
+    grid-row:1
   }
   .brand b {
     font-size:18px
@@ -698,21 +704,38 @@ footer {
     font-size:9px
   }
   .header nav {
-    order:5;
+    grid-column:1/-1;
+    grid-row:3;
+    order:initial;
     width:100%;
     overflow:auto;
-    justify-content:space-between;
+    justify-content:flex-start;
     gap:18px;
-    height:30px
+    height:36px;
+    scrollbar-width:none
+  }
+  .header nav::-webkit-scrollbar {
+    display:none
   }
   .header nav a {
-    font-size:11px
+    font-size:11px;
+    min-height:36px
   }
   .search {
+    grid-column:1/-1;
+    grid-row:2;
+    order:initial;
     height:38px
   }
+  .quick {
+    grid-column:2;
+    grid-row:1;
+    order:initial
+  }
   .quick a {
-    font-size:20px
+    font-size:20px;
+    min-width:38px;
+    min-height:42px
   }
   .quick small {
     font-size:9px
@@ -722,11 +745,11 @@ footer {
   }
   .hero-copy {
     width:100%;
-    padding:38px 25px;
+    padding:30px 20px;
     text-align:right
   }
   .hero h1 {
-    font-size:28px
+    font-size:25px
   }
   .hero-products {
     width:100%;
@@ -746,11 +769,12 @@ footer {
   }
   .trust {
     grid-template-columns:repeat(2,1fr);
-    gap:14px;
+    gap:0;
     padding:15px
   }
   .trust>div {
-    padding:0 25px
+    padding:12px 25px;
+    min-height:58px
   }
   .trust>div:nth-child(2) {
     border:0
@@ -765,12 +789,12 @@ footer {
     font-size:17px
   }
   .categories {
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:8px
   }
   .category {
-    height:110px;
-    padding:11px 4px
+    height:108px;
+    padding:10px 4px
   }
   .category span {
     font-size:27px;
