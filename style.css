@@ -334,6 +334,55 @@ ul {
     margin-bottom: 4px;
 }
 
+.account-menu {
+  position: relative;
+}
+
+.account-menu summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.account-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.account-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 50%;
+  z-index: 10;
+  width: 175px;
+  padding: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(7, 22, 47, 0.14);
+  transform: translateX(50%);
+}
+
+.account-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 5px;
+  color: var(--text);
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.account-dropdown a:hover {
+  background: var(--light);
+  color: var(--primary);
+}
+
+.account-dropdown a i {
+  display: inline;
+  margin: 0;
+  font-size: 14px;
+}
+
 .badge {
     position: absolute;
     top: -9px;

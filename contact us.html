@@ -50,8 +50,13 @@
 				<button type="button" aria-label="بحث"><i class="fa-solid fa-magnifying-glass"></i></button>
 			</div>
 			<div class="header-icons">
-				<a href="signin.html" class="header-icon"><i class="fa-regular fa-user"></i> حسابي</a>
-				<a href="logout.html" class="header-icon"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</a>
+				<details class="account-menu">
+					<summary class="header-icon"><i class="fa-regular fa-user"></i> حسابي</summary>
+					<div class="account-dropdown">
+						<a href="signin.html">تسجيل الدخول</a>
+						<a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</a>
+					</div>
+				</details>
 				<a href="#" class="header-icon"><span class="badge">3</span><i class="fa-regular fa-heart"></i> المفضلة</a>
 				<a href="sales.html" class="header-icon"><span class="badge">2</span><i class="fa-solid fa-cart-shopping"></i> السلة</a>
 			</div>
