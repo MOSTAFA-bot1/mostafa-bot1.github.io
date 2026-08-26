@@ -38,9 +38,9 @@
 			<nav class="nav-menu">
 				<ul>
 					<li><a href="index.html">الرئيسية</a></li>
-					<li><a href="#">المنتجات</a></li>
+					<li><a href="products.html">المنتجات</a></li>
 					<li><a href="/Categories.html">التصنيفات</a></li>
-					<li><a href="#">العروض</a></li>
+					<li><a href="offers.html">العروض</a></li>
 					<li><a href="about.html">عن المتجر</a></li>
 					<li><a href="contact us.html" class="active">تواصل معنا</a></li>
 				</ul>
@@ -50,9 +50,14 @@
 				<button type="button" aria-label="بحث"><i class="fa-solid fa-magnifying-glass"></i></button>
 			</div>
 			<div class="header-icons">
-				<a href="signin.html" class="header-icon"><i class="fa-regular fa-user"></i> حسابي</a>
-				<a href="logout.html" class="header-icon"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</a>
-				<a href="#" class="header-icon"><span class="badge">3</span><i class="fa-regular fa-heart"></i> المفضلة</a>
+				<details class="account-menu">
+					<summary class="header-icon"><i class="fa-regular fa-user"></i> حسابي</summary>
+					<div class="account-dropdown">
+						<a href="signin.html">تسجيل الدخول</a>
+						<a href="logout.html"><i class="fa-solid fa-right-from-bracket"></i> تسجيل الخروج</a>
+					</div>
+				</details>
+				<a href="favorites.html" class="header-icon"><span class="badge">3</span><i class="fa-regular fa-heart"></i> المفضلة</a>
 				<a href="sales.html" class="header-icon"><span class="badge">2</span><i class="fa-solid fa-cart-shopping"></i> السلة</a>
 			</div>
 		</div>
@@ -94,7 +99,7 @@
 					</div>
 				</div>
 
-				<form id="contact" class="contact-form" action="https://api.web3forms.com/submit" method="post" autocomplete="off">
+				<form id="contact" class="contact-form" action="https://api.web3forms.com/submit" method="post" autocomplete="off" novalidate>
 					 <input type="hidden" name="access_key" value="bce1aa73-0baa-485f-8c60-d2e4170ae24e">
                     <div class="form-heading">
 						<h2>أرسل لنا رسالة</h2>
@@ -106,7 +111,7 @@
 					</div>
 					<label>موضوع الرسالة *<input type="text" name="subject" placeholder="كيف يمكننا مساعدتك؟" required></label>
 					<label>رسالتك *<textarea name="message" rows="6" placeholder="اكتب رسالتك هنا..." required></textarea></label>
-					<button class="contact-submit" type="submit">إرسال الرسالة <i class="fa-solid fa-paper-plane"></i></button>
+					<button class="contact-submit" type="submit"><span>إرسال الرسالة</span><i class="fa-solid fa-paper-plane"></i></button>
 				</form>
 			</div>
 		</section>
@@ -133,9 +138,35 @@
 	</footer>
 
 	<script>
+		const contactForm = document.querySelector(".contact-form");
+
+		contactForm.addEventListener("submit", function (event) {
+			if (!contactForm.checkValidity()) {
+				event.preventDefault();
+				const invalidFields = contactForm.querySelectorAll("input:invalid, textarea:invalid");
+
+				invalidFields.forEach(function (field) {
+					field.classList.add("field-error");
+				});
+
+				if (invalidFields[0]) {
+					invalidFields[0].focus();
+				}
+			}
+		});
+
+		contactForm.addEventListener("input", function (event) {
+			if (event.target.matches("input, textarea") && event.target.checkValidity()) {
+				event.target.classList.remove("field-error");
+			}
+		});
+
 		window.addEventListener("pageshow", function (event) {
 			if (event.persisted) {
-				document.querySelector(".contact-form").reset();
+				contactForm.reset();
+				contactForm.querySelectorAll(".field-error").forEach(function (field) {
+					field.classList.remove("field-error");
+				});
 			}
 		});
 	</script>
