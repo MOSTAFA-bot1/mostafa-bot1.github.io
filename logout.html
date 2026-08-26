@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الخروج | DIGITAL DRAGON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page">
+    <main class="auth-main">
+        <section class="auth-panel" aria-live="polite">
+            <div id="logout-status" class="auth-message">جارٍ تسجيل الخروج...</div>
+        </section>
+    </main>
+
+    <script>
+        const clerkPublishableKey = "pk_test_ZmxlZXQtbWFydGluLTMzNzMuY2xlcmsuYWNjb3VudHMuZGV2JA";
+        const status = document.getElementById("logout-status");
+        const clerkDomain = atob(clerkPublishableKey.split("_")[2]).slice(0, -1);
+
+        const loadScript = (src, attributes = {}) => new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = src;
+            script.crossOrigin = "anonymous";
+            Object.entries(attributes).forEach(([name, value]) => script.setAttribute(name, value));
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+
+        Promise.all([
+            loadScript(`https://${clerkDomain}/npm/@clerk/ui@1/dist/ui.browser.js`),
+            loadScript(`https://${clerkDomain}/npm/@clerk/clerk-js@6/dist/clerk.browser.js`, {
+                "data-clerk-publishable-key": clerkPublishableKey
+            })
+        ]).then(async function () {
+            await Clerk.load({ ui: { ClerkUI: window.__internal_ClerkUICtor } });
+            await Clerk.signOut();
+            window.location.replace("index.html");
+        }).catch(function () {
+            status.textContent = "تعذر تسجيل الخروج. حاول مرة أخرى.";
+        });
+    </script>
+</body>
+
+</html>

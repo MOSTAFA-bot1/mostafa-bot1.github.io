@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول | DIGITAL DRAGON</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page">
+    <header class="auth-header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="dragon-icon"><i class="fa-solid fa-dragon"></i></div>
+                <div class="logo-text">
+                    <h2>DIGITAL <span>DRAGON</span></h2>
+                    <p>متجر الإلكترونيات</p>
+                </div>
+            </a>
+            <a href="index.html" class="auth-back">العودة إلى المتجر</a>
+        </div>
+    </header>
+
+    <main class="auth-main">
+        <section class="auth-copy">
+            <span class="auth-kicker">DIGITAL DRAGON</span>
+            <h1>مرحبًا بعودتك إلى عالم التقنية.</h1>
+            <p>سجّل الدخول لمتابعة طلباتك والوصول إلى المنتجات والعروض التي اخترتها.</p>
+        </section>
+        <section class="auth-panel" aria-label="تسجيل الدخول">
+            <div id="clerk-sign-in" class="clerk-root"></div>
+        </section>
+    </main>
+
+    <script>
+        const clerkPublishableKey = "pk_test_ZmxlZXQtbWFydGluLTMzNzMuY2xlcmsuYWNjb3VudHMuZGV2JA";
+        const clerkRoot = document.getElementById("clerk-sign-in");
+
+        function showClerkMessage(message) {
+            clerkRoot.innerHTML = "<p class=\"auth-message\">" + message + "</p>";
+        }
+
+        if (!clerkPublishableKey) {
+            showClerkMessage("أضف مفتاح Clerk العام إلى الصفحة لتفعيل تسجيل الدخول.");
+        } else {
+            const clerkDomain = atob(clerkPublishableKey.split("_")[2]).slice(0, -1);
+            const loadScript = (src, attributes = {}) => new Promise((resolve, reject) => {
+                const script = document.createElement("script");
+                script.src = src;
+                script.crossOrigin = "anonymous";
+                Object.entries(attributes).forEach(([name, value]) => script.setAttribute(name, value));
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+
+            Promise.all([
+                loadScript(`https://${clerkDomain}/npm/@clerk/ui@1/dist/ui.browser.js`),
+                loadScript(`https://${clerkDomain}/npm/@clerk/clerk-js@6/dist/clerk.browser.js`, {
+                    "data-clerk-publishable-key": clerkPublishableKey
+                })
+            ]).then(async function () {
+                try {
+                    await Clerk.load({ ui: { ClerkUI: window.__internal_ClerkUICtor } });
+                    Clerk.mountSignIn(clerkRoot, {
+                        routing: "hash",
+                        withSignUp: true,
+                        signUpUrl: "signup.html",
+                        fallbackRedirectUrl: "index.html"
+                    });
+                } catch (error) {
+                    showClerkMessage("تعذر تحميل تسجيل الدخول. تحقق من إعدادات Clerk.");
+                }
+            }).catch(function () {
+                showClerkMessage("تعذر الاتصال بخدمة تسجيل الدخول.");
+            });
+        }
+    </script>
+</body>
+
+</html>

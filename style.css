@@ -46,6 +46,120 @@ ul {
     margin: auto;
 }
 
+/* =========================
+   صفحات تسجيل الدخول
+========================= */
+
+.auth-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef4ff 0%, #f8fbff 52%, #e7efff 100%);
+}
+
+.auth-header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border);
+  padding: 15px 0;
+}
+
+.auth-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth-back {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.auth-main {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(320px, 440px);
+  gap: 70px;
+  align-items: center;
+  width: 92%;
+  max-width: 1080px;
+  min-height: calc(100vh - 101px);
+  margin: auto;
+  padding: 60px 0;
+}
+
+.auth-copy {
+  direction: rtl;
+}
+
+.auth-kicker {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.auth-copy h1 {
+  max-width: 480px;
+  margin-bottom: 18px;
+  color: var(--dark);
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 1.25;
+}
+
+.auth-copy p {
+  max-width: 450px;
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 2;
+}
+
+.auth-panel {
+  width: 100%;
+  min-height: 480px;
+  padding: 34px 30px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 18px 50px rgba(7, 22, 47, 0.1);
+}
+
+.clerk-root {
+  direction: rtl;
+}
+
+.auth-message {
+  padding: 22px;
+  border: 1px solid #dbe6ff;
+  border-radius: 8px;
+  background: #f6f8fc;
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+@media (max-width: 760px) {
+  .auth-main {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 38px 0;
+  }
+
+  .auth-copy {
+    text-align: center;
+  }
+
+  .auth-copy h1,
+  .auth-copy p {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .auth-panel {
+    padding: 24px 18px;
+  }
+}
+
 
 /* =========================
    الشريط العلوي
