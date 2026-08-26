@@ -137,38 +137,6 @@
 		<div class="footer-bottom"><div class="container">جميع الحقوق محفوظة © 2026 DIGITAL DRAGON</div></div>
 	</footer>
 
-	<script>
-		const contactForm = document.querySelector(".contact-form");
-
-		contactForm.addEventListener("submit", function (event) {
-			if (!contactForm.checkValidity()) {
-				event.preventDefault();
-				const invalidFields = contactForm.querySelectorAll("input:invalid, textarea:invalid");
-
-				invalidFields.forEach(function (field) {
-					field.classList.add("field-error");
-				});
-
-				if (invalidFields[0]) {
-					invalidFields[0].focus();
-				}
-			}
-		});
-
-		contactForm.addEventListener("input", function (event) {
-			if (event.target.matches("input, textarea") && event.target.checkValidity()) {
-				event.target.classList.remove("field-error");
-			}
-		});
-
-		window.addEventListener("pageshow", function (event) {
-			if (event.persisted) {
-				contactForm.reset();
-				contactForm.querySelectorAll(".field-error").forEach(function (field) {
-					field.classList.remove("field-error");
-				});
-			}
-		});
-	</script>
+	<script src="script.js"></script>
 </body>
 </html>
