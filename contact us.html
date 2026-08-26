@@ -99,7 +99,7 @@
 					</div>
 				</div>
 
-				<form id="contact" class="contact-form" action="https://api.web3forms.com/submit" method="post" autocomplete="off">
+				<form id="contact" class="contact-form" action="https://api.web3forms.com/submit" method="post" autocomplete="off" novalidate>
 					 <input type="hidden" name="access_key" value="bce1aa73-0baa-485f-8c60-d2e4170ae24e">
                     <div class="form-heading">
 						<h2>أرسل لنا رسالة</h2>
@@ -138,9 +138,35 @@
 	</footer>
 
 	<script>
+		const contactForm = document.querySelector(".contact-form");
+
+		contactForm.addEventListener("submit", function (event) {
+			if (!contactForm.checkValidity()) {
+				event.preventDefault();
+				const invalidFields = contactForm.querySelectorAll("input:invalid, textarea:invalid");
+
+				invalidFields.forEach(function (field) {
+					field.classList.add("field-error");
+				});
+
+				if (invalidFields[0]) {
+					invalidFields[0].focus();
+				}
+			}
+		});
+
+		contactForm.addEventListener("input", function (event) {
+			if (event.target.matches("input, textarea") && event.target.checkValidity()) {
+				event.target.classList.remove("field-error");
+			}
+		});
+
 		window.addEventListener("pageshow", function (event) {
 			if (event.persisted) {
-				document.querySelector(".contact-form").reset();
+				contactForm.reset();
+				contactForm.querySelectorAll(".field-error").forEach(function (field) {
+					field.classList.remove("field-error");
+				});
 			}
 		});
 	</script>

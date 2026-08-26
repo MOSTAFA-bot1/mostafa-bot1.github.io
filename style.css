@@ -3918,6 +3918,10 @@ footer {
 .contact-form textarea { width: 100%; border: 1px solid #dce3ef; border-radius: 8px; padding: 12px 14px; outline: 0; color: var(--text); background: #fbfcff; font: inherit; font-size: 12px; resize: vertical; }
 .contact-form input:focus,
 .contact-form textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(21, 79, 193, .1); }
+.contact-form .field-error {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, .12);
+}
 .contact-submit {
   width: 138px;
   border: 0;
