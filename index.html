@@ -1,308 +1,680 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Dragon | متجر إلكترونيات</title>
+
+    <title>عن المتجر | DIGITAL DRAGON</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="https://taninss.com/storage/team-members/qI1AGCNko36hKFRUKTaZdBorwJ8KXYWWu5cUB4YU.webp" />
-  </head>
-  <body>
-    <div class="utility">
-      <div class="shell utility-inner">
-        <span>خدمة العملاء 24/7 ◌</span>
-        <span>ضمان استرجاع خلال 14 يوم</span>
-        <span>🚚 توصيل سريع لجميع الطلبات</span>
-        <span>العروض والتخفيضات ◇</span>
-        <span>تتبع الطلب ◎</span>
-      </div>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+
+        <div class="container top-bar-content">
+
+            <div class="top-right">
+
+                <span>
+                    <i class="fa-solid fa-headset"></i>
+                    دعم العملاء
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    ضمان استرجاع خلال 14 يوم
+                </span>
+
+            </div>
+
+
+            <div class="top-left">
+
+                <span>
+                    <i class="fa-solid fa-truck"></i>
+                    توصيل سريع لجميع الطلبات
+                </span>
+
+                <span>
+                    <i class="fa-solid fa-tag"></i>
+                    العروض والتخفيضات
+                </span>
+
+            </div>
+
+        </div>
+
     </div>
-    <header class="header shell">
-      <a class="brand" href="#">
-        <span class="brand-mark">◈</span>
-        <span>
-          <b>DIGITAL <i>DRAGON</i>
-        </b>
-        <small>متجر الإلكترونيات</small>
-      </span>
-    </a>
-    <nav>
-      <a class="active" href="#">الرئيسية</a>
-      <a href="#products">المنتجات</a>
-      <a href="#categories">التصنيفات</a>
-      <a href="#offers">العروض</a>
-      <a href="#about">عن المتجر</a>
-      <a href="#contact">تواصل معنا</a>
-    </nav>
-    <div class="search">
-      <span>⌕</span>
-      <input placeholder="ابحث عن منتج..." aria-label="البحث">
-      <button>⌕</button>
-    </div>
-    <div class="quick">
-      <a href="#">♙<small>حسابي</small>
-    </a>
-    <a href="#">♡<em>3</em>
-    <small>المفضلة</small>
-  </a>
-  <a href="#">🛒<em>2</em>
-  <small>السلة</small>
-</a>
-</div>
-</header>
-<main>
-  <section class="hero shell">
-    <div class="hero-copy">
-      <p>تقنية أفضل • حياة أسهل</p>
-      <h1>كل ما تحتاجه من<br>
-      <strong>الإلكترونيات</strong> في مكان واحد</h1>
-      <span>اكتشف أحدث المنتجات بأفضل الأسعار<br>مع ضمان الجودة وخدمة عملاء مميزة</span>
-      <div>
-        <a class="button primary" href="#products">تسوق الآن ←</a>
-        <a class="button ghost" href="#offers">استكشف العروض ◇</a>
-      </div>
-    </div>
-    <div class="hero-products">
-      <div class="orb">
-      </div>
-      <div class="device laptop">▰</div>
-      <div class="device phone">▯</div>
-      <div class="device buds">◌</div>
-      <div class="device watch">◉</div>
-    </div>
-  </section>
-  <section class="trust shell">
-    <div>
-      <b>شحن سريع</b>
-      <span>توصيل خلال 1-3 أيام</span>
-      <strong>▣</strong>
-    </div>
-    <div>
-      <b>ضمان استرجاع 14 يوم</b>
-      <span>لا يوجد ما يدعو للقلق</span>
-      <strong>↻</strong>
-    </div>
-    <div>
-      <b>دعم عملاء 24/7</b>
-      <span>نحن هنا لمساعدتك</span>
-      <strong>♧</strong>
-    </div>
-    <div>
-      <b>دفع آمن 100%</b>
-      <span>جميع المعاملات محمية</span>
-      <strong>♢</strong>
-    </div>
-  </section>
-  <section class="section shell" id="categories">
-    <div class="section-head">
-      <a href="#">عرض جميع التصنيفات ←</a>
-      <h2>تسوق حسب التصنيف <i>
-    </i>
-  </h2>
-</div>
-<div class="categories">
-  <article class="category c1">
-    <span>▣</span>
-    <b>أجهزة الكمبيوتر</b>
-    <small>120 منتج</small>
-  </article>
-  <article class="category c2">
-    <span>▥</span>
-    <b>الهواتف الذكية</b>
-    <small>250 منتج</small>
-  </article>
-  <article class="category c3">
-    <span>⌚</span>
-    <b>الساعات الذكية</b>
-    <small>90 منتج</small>
-  </article>
-  <article class="category c4">
-    <span>♬</span>
-    <b>سماعات الرأس</b>
-    <small>180 منتج</small>
-  </article>
-  <article class="category c5">
-    <span>◉</span>
-    <b>الكاميرات</b>
-    <small>70 منتج</small>
-  </article>
-  <article class="category c6">
-    <span>⌘</span>
-    <b>ألعاب إلكترونية</b>
-    <small>110 منتج</small>
-  </article>
-  <article class="category c7">
-    <span>⌁</span>
-    <b>الملحقات</b>
-    <small>200 منتج</small>
-  </article>
-  <article class="category c8">
-    <span>⊞</span>
-    <b>المزيد</b>
-    <small>اكتشف المزيد</small>
-  </article>
-</div>
-</section>
-<section class="section shell" id="products">
-  <div class="section-head">
-    <a href="#">عرض جميع المنتجات ←</a>
-    <h2>أفضل العروض <i>
-  </i>
-</h2>
-</div>
-<div class="products">
-  <article class="product">
-    <label>-15%</label>
-    <button class="heart">♡</button>
-    <div class="product-image img-laptop">
-    </div>
-    <h3>لابتوب ديل إنسبايرون 15</h3>
-    <small>i5 • 8GB RAM • 512GB SSD</small>
-    <div class="rating">★★★★★ <span>(128)</span>
-  </div>
-  <div class="price">2,549 <small>ر.س</small>
-  <del>2,999</del>
-</div>
-</article>
-<article class="product">
-  <label>-10%</label>
-  <button class="heart">♡</button>
-  <div class="product-image img-phone">
-  </div>
-  <h3>هاتف سامسونج جالكسي S23</h3>
-  <small>8GB RAM • 128GB</small>
-  <div class="rating">★★★★★ <span>(96)</span>
-</div>
-<div class="price">2,699 <small>ر.س</small>
-<del>2,999</del>
-</div>
-</article>
-<article class="product">
-  <label>-20%</label>
-  <button class="heart">♡</button>
-  <div class="product-image img-watch">
-  </div>
-  <h3>ساعة أبل واتش Series 9</h3>
-  <small>45mm • GPS</small>
-  <div class="rating">★★★★★ <span>(78)</span>
-</div>
-<div class="price">1,599 <small>ر.س</small>
-<del>1,999</del>
-</div>
-</article>
-<article class="product">
-  <label>-25%</label>
-  <button class="heart">♡</button>
-  <div class="product-image img-headphones">
-  </div>
-  <h3>سماعات سوني WH-1000XM5</h3>
-  <small>عزل الضوضاء • بلوتوث</small>
-  <div class="rating">★★★★★ <span>(64)</span>
-</div>
-<div class="price">899 <small>ر.س</small>
-<del>1,199</del>
-</div>
-</article>
-<article class="product">
-  <label>-12%</label>
-  <button class="heart">♡</button>
-  <div class="product-image img-camera">
-  </div>
-  <h3>كاميرا سوني Alpha 6400</h3>
-  <small>24.2MP • 4K • WiFi</small>
-  <div class="rating">★★★★★ <span>(55)</span>
-</div>
-<div class="price">3,299 <small>ر.س</small>
-<del>3,749</del>
-</div>
-</article>
-<article class="product">
-  <label>-15%</label>
-  <button class="heart">♡</button>
-  <div class="product-image img-buds">
-  </div>
-  <h3>إيربودز برو 2</h3>
-  <small>مع علبة شحن MagSafe</small>
-  <div class="rating">★★★★★ <span>(88)</span>
-</div>
-<div class="price">849 <small>ر.س</small>
-<del>999</del>
-</div>
-</article>
-</div>
-</section>
-<section class="promos shell" id="offers">
-  <article class="promo purple">
-    <span>عروض نهاية الأسبوع</span>
-    <b>خصومات تصل إلى 30%</b>
-    <a href="#">تسوق الآن</a>
-  </article>
-  <article class="promo blue">
-    <span>أحدث الهواتف الذكية</span>
-    <b>اكتشف أحدث الإصدارات</b>
-    <a href="#">تسوق الآن</a>
-  </article>
-  <article class="promo green">
-    <span>ملحقات أصلية 100%</span>
-    <b>جودة مضمونة</b>
-    <a href="#">تسوق الآن</a>
-  </article>
-</section>
-<section class="newsletter shell">
-  <div>
-    <span>اشترك في نشرتنا البريدية</span>
-    <p>احصل على أحدث العروض والتخفيضات مباشرة على بريدك الإلكتروني</p>
-  </div>
-  <form>
-    <input placeholder="أدخل بريدك الإلكتروني">
-    <button>اشترك الآن</button>
-  </form>
-  <b class="paper">➤</b>
-</section>
-</main>
-<footer id="contact">
-  <div class="shell footer-grid">
-    <div class="footer-brand">
-      <a class="brand" href="#">
-        <span class="brand-mark">◈</span>
-        <span>
-          <b>DIGITAL <i>DRAGON</i>
-        </b>
-        <small>متجر الإلكترونيات</small>
-      </span>
-    </a>
-    <p>وجهتك الأولى لكل ما تحتاجه من أحدث الإلكترونيات بجودة عالية وخدمة عملاء مميزة.</p>
-    <div class="social">◎　●　◉　◍</div>
-  </div>
-  <div>
-    <h3>معلومات التواصل</h3>
-    <p>الرياض، المملكة العربية السعودية</p>
-    <p>+966 50 123 4567</p>
-    <p>support@digitaldragon.com</p>
-    <p>السبت - الخميس • 9 صباحاً - 10 مساءً</p>
-  </div>
-  <div>
-    <h3>خدمة العملاء</h3>
-    <p>تتبع الطلب</p>
-    <p>طرق الدفع</p>
-    <p>الضمان</p>
-    <p>الشروط والأحكام</p>
-  </div>
-  <div>
-    <h3>روابط مهمة</h3>
-    <p>عن المتجر</p>
-    <p>سياسة الشحن والتوصيل</p>
-    <p>سياسة الاسترجاع</p>
-    <p>الأسئلة الشائعة</p>
-  </div>
-</div>
-<div class="copyright shell">
-  <span>© 2024 Digital Dragon جميع الحقوق محفوظة</span>
-  <span class="payments">Apple Pay　 mada　 VISA　 ◉</span>
-</div>
-</footer>
+
+
+    <!-- الهيدر -->
+    <header class="main-header">
+
+        <div class="container header-content">
+
+
+            <!-- اللوجو -->
+            <a href="#" class="logo">
+
+                <div class="dragon-icon">
+                    <i class="fa-solid fa-dragon"></i>
+                </div>
+
+                <div class="logo-text">
+
+                    <h2>
+                        DIGITAL <span>DRAGON</span>
+                    </h2>
+
+                    <p>متجر الإلكترونيات</p>
+
+                </div>
+
+            </a>
+
+
+            <!-- القائمة -->
+            <nav class="nav-menu">
+
+                <ul>
+
+                    <li>
+                        <a href="#">الرئيسية</a>
+                    </li>
+
+                    <li>
+                        <a href="/sales.html">المنتجات</a>
+                    </li>
+
+                    <li>
+                        <a href="#">التصنيفات</a>
+                    </li>
+
+                    <li>
+                        <a href="#">العروض</a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="active">
+                            عن المتجر
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">تواصل معنا</a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <!-- البحث -->
+            <div class="search-box">
+
+                <input type="text" placeholder="ابحث عن منتج...">
+
+                <button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+            </div>
+
+
+            <!-- الأيقونات -->
+            <div class="header-icons">
+
+                <a href="#" class="header-icon">
+
+                    <i class="fa-regular fa-user"></i>
+
+                    حسابي
+
+                </a>
+
+
+                <a href="#" class="header-icon">
+
+                    <span class="badge">3</span>
+
+                    <i class="fa-regular fa-heart"></i>
+
+                    المفضلة
+
+                </a>
+
+
+                <a href="#" class="header-icon">
+
+                    <span class="badge">2</span>
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    السلة
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- مسار الصفحة -->
+    <section class="breadcrumb">
+
+        <div class="container breadcrumb-content">
+
+            <a href="#">الرئيسية</a>
+
+            <i class="fa-solid fa-angle-left"></i>
+
+            <span>عن المتجر</span>
+
+        </div>
+
+    </section>
+
+
+    <!-- عنوان الصفحة -->
+    <section class="page-title">
+
+        <h1>عن DIGITAL DRAGON</h1>
+
+        <p>
+            تعرف على متجرنا ورؤيتنا في عالم الإلكترونيات والتقنية
+        </p>
+
+    </section>
+
+
+    <!-- قسم عن المتجر -->
+    <section class="about-section">
+
+        <div class="container">
+
+            <div class="about-card">
+
+
+                <!-- الصورة -->
+                <div class="about-image">
+
+                    <div class="dragon-big">
+                        <i class="fa-solid fa-dragon"></i>
+                    </div>
+
+                </div>
+
+
+                <!-- المحتوى -->
+                <div class="about-text">
+
+                    <span>من نحن</span>
+
+
+                    <h2>
+                        وجهتك الموثوقة لأحدث
+                        الأجهزة والإلكترونيات
+                    </h2>
+
+
+                    <p>
+                        مرحبًا بك في DIGITAL DRAGON، متجر إلكتروني متخصص
+                        في توفير أحدث المنتجات التقنية والإلكترونية بجودة
+                        عالية وأسعار تنافسية.
+                    </p>
+
+
+                    <p>
+                        نسعى دائمًا إلى تقديم تجربة تسوق سهلة وآمنة،
+                        مع توفير مجموعة متنوعة من المنتجات التي تناسب
+                        احتياجات العملاء، بداية من السماعات والهواتف
+                        والإكسسوارات وحتى أحدث الأجهزة التقنية.
+                    </p>
+
+
+                    <div class="features-list">
+
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-circle-check"></i>
+
+                            <span>
+                                منتجات أصلية ومضمونة
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-truck-fast"></i>
+
+                            <span>
+                                توصيل سريع وآمن
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <span>
+                                دفع إلكتروني آمن
+                            </span>
+
+                        </div>
+
+
+                        <div class="feature-item">
+
+                            <i class="fa-solid fa-headset"></i>
+
+                            <span>
+                                دعم فني متواصل
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- الإحصائيات -->
+    <section class="stats">
+
+        <div class="container">
+
+            <div class="stats-container">
+
+
+                <div class="stat-box">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <h3>+50,000</h3>
+
+                    <p>عميل سعيد</p>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <i class="fa-solid fa-box"></i>
+
+                    <h3>+2,000</h3>
+
+                    <p>منتج متوفر</p>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <i class="fa-solid fa-store"></i>
+
+                    <h3>+25</h3>
+
+                    <p>علامة تجارية</p>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <i class="fa-solid fa-star"></i>
+
+                    <h3>4.9</h3>
+
+                    <p>تقييم العملاء</p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- لماذا نحن -->
+    <section class="why-us">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <span>
+                    لماذا DIGITAL DRAGON؟
+                </span>
+
+                <h2>
+                    تجربة تسوق إلكتروني أفضل
+                </h2>
+
+            </div>
+
+
+            <div class="why-grid">
+
+
+                <div class="why-card">
+
+                    <div class="why-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+
+                    <h3>جودة مضمونة</h3>
+
+                    <p>
+                        نحرص على اختيار منتجات أصلية وعالية الجودة
+                        لضمان أفضل تجربة ممكنة لعملائنا.
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <div class="why-icon">
+                        <i class="fa-solid fa-tags"></i>
+                    </div>
+
+                    <h3>أسعار تنافسية</h3>
+
+                    <p>
+                        نقدم أفضل الأسعار والعروض المميزة على مجموعة
+                        متنوعة من الأجهزة والإلكترونيات.
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <div class="why-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <h3>دعم العملاء</h3>
+
+                    <p>
+                        فريق خدمة العملاء جاهز دائمًا لمساعدتك والإجابة
+                        على استفساراتك قبل وبعد الشراء.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- شريط الخدمات -->
+    <section class="service-bar">
+
+        <div class="container">
+
+            <div class="service-items">
+
+
+                <div class="service-item">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <div>
+
+                        <h4>
+                            منتجات أصلية 100%
+                        </h4>
+
+                        <p>
+                            جودة مضمونة
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-item">
+
+                    <i class="fa-regular fa-credit-card"></i>
+
+                    <div>
+
+                        <h4>
+                            طرق دفع آمنة
+                        </h4>
+
+                        <p>
+                            جميع البطاقات متاحة
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-item">
+
+                    <i class="fa-solid fa-headset"></i>
+
+                    <div>
+
+                        <h4>
+                            دعم عملاء 24/7
+                        </h4>
+
+                        <p>
+                            نحن هنا لخدمتك
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-item">
+
+                    <i class="fa-solid fa-truck-fast"></i>
+
+                    <div>
+
+                        <h4>
+                            توصيل سريع
+                        </h4>
+
+                        <p>
+                            خلال 1-3 أيام
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- الفوتر -->
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div>
+
+                    <div class="footer-logo">
+
+                        <div class="dragon-icon">
+                            <i class="fa-solid fa-dragon"></i>
+                        </div>
+
+
+                        <div class="logo-text">
+
+                            <h2>
+                                DIGITAL <span>DRAGON</span>
+                            </h2>
+
+                            <p>
+                                متجر الإلكترونيات
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="footer-text">
+
+                        متجر متخصص في توفير أحدث المنتجات
+                        الإلكترونية والتقنية بأفضل الأسعار
+                        وأعلى مستويات الجودة.
+
+                    </p>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>روابط مهمة</h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#">عن المتجر</a>
+                        </li>
+
+                        <li>
+                            <a href="#">سياسة الخصوصية</a>
+                        </li>
+
+                        <li>
+                            <a href="#">الشروط والأحكام</a>
+                        </li>
+
+                        <li>
+                            <a href="#">الأسئلة الشائعة</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>خدمة العملاء</h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#">تتبع الطلب</a>
+                        </li>
+
+                        <li>
+                            <a href="#">طرق الدفع</a>
+                        </li>
+
+                        <li>
+                            <a href="#">سياسة الاسترجاع</a>
+                        </li>
+
+                        <li>
+                            <a href="#">تواصل معنا</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h3>
+                        اشترك في نشرتنا البريدية
+                    </h3>
+
+                    <p class="footer-text">
+                        احصل على أحدث العروض والمنتجات الجديدة.
+                    </p>
+
+
+                    <div class="newsletter">
+
+                        <input
+                            type="email"
+                            placeholder="أدخل بريدك الإلكتروني"
+                        >
+
+                        <button>
+                            اشترك الآن
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                جميع الحقوق محفوظة © 2026
+                DIGITAL DRAGON
+
+            </div>
+
+        </div>
+
+    </footer>
+
 </body>
+
 </html>
