@@ -1,85 +1,91 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>إنشاء حساب | DIGITAL DRAGON</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="auth-page">
     <header class="auth-header">
         <div class="container">
             <a href="index.html" class="logo">
                 <div class="dragon-icon"><i class="fa-solid fa-dragon"></i></div>
-                <div class="logo-text">
-                    <h2>DIGITAL <span>DRAGON</span></h2>
-                    <p>متجر الإلكترونيات</p>
-                </div>
+                <div class="logo-text"><h2>DIGITAL <span>DRAGON</span></h2><p>متجر الإلكترونيات</p></div>
             </a>
             <a href="index.html" class="auth-back">العودة إلى المتجر</a>
         </div>
     </header>
-
     <main class="auth-main">
         <section class="auth-copy">
             <span class="auth-kicker">DIGITAL DRAGON</span>
             <h1>أنشئ حسابك وابدأ التسوق.</h1>
-            <p>احفظ منتجاتك المفضلة، وتابع طلباتك، واستمتع بتجربة تسوق أسرع وأكثر سهولة.</p>
+            <p>سجّل الدخول أو أنشئ حسابًا لمتابعة طلباتك والوصول إلى المفضلة والعروض الحصرية.</p>
         </section>
-        <section class="auth-panel" aria-label="إنشاء حساب">
-            <div id="clerk-sign-up" class="clerk-root"></div>
+        <section class="auth-panel" aria-label="نموذج الحساب">
+            <div class="auth-tabs"><button class="auth-tab" type="button" data-tab="signin">تسجيل الدخول</button><button class="auth-tab active" type="button" data-tab="signup">إنشاء حساب</button></div>
+            <form class="auth-form" id="signin-form">
+                <h2>تسجيل الدخول</h2><p>سعداء بعودتك! أدخل بياناتك للمتابعة.</p>
+                <div class="auth-field"><label for="signin-email">البريد الإلكتروني</label><input id="signin-email" type="email" placeholder="example@email.com" required></div>
+                <div class="auth-field"><label for="signin-password">كلمة المرور</label><input id="signin-password" type="password" placeholder="كلمة المرور" minlength="6" required></div>
+                <span class="auth-error"></span><button class="auth-submit" type="submit">تسجيل الدخول</button>
+                <div class="auth-switch">ليس لديك حساب؟ <button type="button" data-switch="signup">أنشئ حسابًا جديدًا</button></div>
+            </form>
+            <form class="auth-form active" id="signup-form">
+                <h2>إنشاء حساب جديد</h2><p>انضم إلى Digital Dragon واستمتع بعروض حصرية.</p>
+                <div class="auth-field"><label for="signup-name">الاسم الكامل</label><input id="signup-name" type="text" placeholder="الاسم الكامل" minlength="3" required></div>
+                <div class="auth-field"><label for="signup-email">البريد الإلكتروني</label><input id="signup-email" type="email" placeholder="example@email.com" required></div>
+                <div class="auth-field"><label for="signup-password">كلمة المرور</label><input id="signup-password" type="password" placeholder="8 أحرف على الأقل" minlength="8" required></div>
+                <span class="auth-error"></span><button class="auth-submit" type="submit">إنشاء الحساب</button>
+                <div class="auth-switch">لديك حساب بالفعل؟ <button type="button" data-switch="signin">تسجيل الدخول</button></div>
+            </form>
         </section>
     </main>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <script>
-        const clerkPublishableKey = "pk_test_ZmxlZXQtbWFydGluLTMzNzMuY2xlcmsuYWNjb3VudHMuZGV2JA";
-        const clerkRoot = document.getElementById("clerk-sign-up");
-
-        function showClerkMessage(message) {
-            clerkRoot.innerHTML = "<p class=\"auth-message\">" + message + "</p>";
+        const tabs = document.querySelectorAll("[data-tab]");
+        const switchButtons = document.querySelectorAll("[data-switch]");
+        const forms = document.querySelectorAll(".auth-form");
+        function showTab(name) {
+            tabs.forEach(tab => tab.classList.toggle("active", tab.dataset.tab === name));
+            forms.forEach(form => form.classList.toggle("active", form.id === name + "-form"));
         }
+        tabs.forEach(tab => tab.addEventListener("click", () => showTab(tab.dataset.tab)));
+        switchButtons.forEach(button => button.addEventListener("click", () => showTab(button.dataset.switch)));
+        const users = JSON.parse(localStorage.getItem("digital-dragon-users") || "{}");
+        forms.forEach(form => form.addEventListener("submit", event => {
+            event.preventDefault();
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+            const error = form.querySelector(".auth-error");
+            const email = form.querySelector("input[type=email]").value.trim().toLowerCase();
+            const password = form.querySelector("input[type=password]").value;
+            let redirectAfterSuccess = true;
 
-        if (!clerkPublishableKey) {
-            showClerkMessage("أضف مفتاح Clerk العام إلى الصفحة لتفعيل إنشاء الحساب.");
-        } else {
-            const clerkDomain = atob(clerkPublishableKey.split("_")[2]).slice(0, -1);
-            const loadScript = (src, attributes = {}) => new Promise((resolve, reject) => {
-                const script = document.createElement("script");
-                script.src = src;
-                script.crossOrigin = "anonymous";
-                Object.entries(attributes).forEach(([name, value]) => script.setAttribute(name, value));
-                script.onload = resolve;
-                script.onerror = reject;
-                document.head.appendChild(script);
-            });
-
-            Promise.all([
-                loadScript(`https://${clerkDomain}/npm/@clerk/ui@1/dist/ui.browser.js`),
-                loadScript(`https://${clerkDomain}/npm/@clerk/clerk-js@6/dist/clerk.browser.js`, {
-                    "data-clerk-publishable-key": clerkPublishableKey
-                })
-            ]).then(async function () {
-                try {
-                    await Clerk.load({ ui: { ClerkUI: window.__internal_ClerkUICtor } });
-                    Clerk.mountSignUp(clerkRoot, {
-                        routing: "hash",
-                        signInUrl: "signin.html",
-                        fallbackRedirectUrl: "index.html"
-                    });
-                } catch (error) {
-                    showClerkMessage("تعذر تحميل إنشاء الحساب. تحقق من إعدادات Clerk.");
-                }
-            }).catch(function () {
-                showClerkMessage("تعذر الاتصال بخدمة إنشاء الحساب.");
-            });
-        }
+            if (form.id === "signup-form") {
+                const name = form.querySelector("input[type=text]").value.trim();
+                if (users[email]) { error.textContent = "هذا البريد الإلكتروني مستخدم بالفعل."; return; }
+                users[email] = { name, password };
+                localStorage.setItem("digital-dragon-users", JSON.stringify(users));
+                localStorage.setItem("digital-dragon-user", JSON.stringify({ name, email }));
+                form.reset();
+                error.textContent = "تم إنشاء الحساب بنجاح. يمكنك تسجيل الدخول الآن.";
+                redirectAfterSuccess = false;
+            } else if (!users[email] || users[email].password !== password) {
+                error.textContent = "البريد الإلكتروني أو كلمة المرور غير صحيحة.";
+                return;
+            } else {
+                localStorage.setItem("digital-dragon-user", JSON.stringify({ name: users[email].name, email }));
+                form.reset();
+                error.textContent = "تم تسجيل الدخول بنجاح. سيتم تحويلك إلى المتجر.";
+            }
+            setTimeout(() => {
+                if (redirectAfterSuccess) window.location.href = "index.html";
+                else showTab("signin");
+            }, 700);
+        }));
     </script>
 </body>
-
 </html>
