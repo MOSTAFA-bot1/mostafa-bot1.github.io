@@ -4468,3 +4468,47 @@ footer {
       min-width: 0;
     }
   }
+/* زر تواصل معنا */
+.contact-button {
+    position: fixed;
+    right: 20px;
+    bottom: 85px;
+
+    background-color: #25D366;
+    color: white;
+
+    padding: 7px 14px;
+    border-radius: 18px;
+
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+
+    z-index: 9999;
+}
+
+/* أيقونة واتساب */
+.whatsapp-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    width: 55px;
+    height: 55px;
+
+    background-color: #25D366;
+    color: white;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+
+    z-index: 9999;
+
+    /* الأيقونة للعرض فقط */
+    pointer-events: none;
+}
