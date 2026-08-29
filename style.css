@@ -12,6 +12,9 @@
     --light: #f6f8fc;
     --border: #e5eaf2;
     --white: #ffffff;
+    --blue: #1254e8;
+    --green: #22a563;
+    --dark-blue: #07162f;
 }
 
 
@@ -499,6 +502,7 @@ ul {
 .header-content {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 35px;
 }
 
@@ -549,7 +553,9 @@ ul {
 ========================= */
 
 .nav-menu {
-    flex: 1;
+    flex: 1 1 100%;
+    order: 3;
+    width: 100%;
 }
 
 .nav-menu ul {
@@ -2103,8 +2109,6 @@ footer {
     .device-phone {
         left: 30px;
     }
-}
-
 }
 
 
@@ -4664,7 +4668,8 @@ footer {
     }
 
     .search-box {
-      width: min(100%, 320px);
+      width: min(100%, 260px);
+      flex: 1 1 220px;
     }
 
     .hero-home-inner {
@@ -4750,17 +4755,16 @@ footer {
     .header-icons {
       grid-column: 2;
       grid-row: 1;
-      gap: 10px;
-    }
-
-    .header-icon {
-      font-size: 0;
-    }
       display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: 8px;
       min-width: max-content;
+    }
+
+    .header-icon {
+      font-size: 0;
+    }
 
     .header-icon i {
       font-size: 20px;
@@ -4982,10 +4986,17 @@ footer {
 }
 
 :root .auth-page .auth-copy h1,
-:root .auth-page .auth-copy p,
-:root .auth-page .auth-panel h2,
-:root .auth-page .auth-field label {
+:root .auth-page .auth-copy p {
   color: #ffffff;
+}
+
+:root .auth-page .auth-panel h2 {
+  color: var(--dark);
+}
+
+:root .auth-page .auth-field label {
+  color: var(--text);
+  font-weight: 600;
 }
 
 :root .auth-page .auth-copy p {
@@ -5029,6 +5040,37 @@ footer {
   content: "\1F409";
   color: #b9d3ff;
   opacity: .28;
+}
+
+/* Logout message panel: center it when it is the only auth section */
+.auth-main > .auth-panel:only-child {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+  .auth-main > .auth-panel:only-child {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Auth pages: keep header branding and back link readable on the light header */
+:root .auth-page .logo-text h2 {
+  color: var(--dark);
+}
+
+:root .auth-page .logo-text h2 span {
+  color: var(--primary);
+}
+
+:root .auth-page .auth-back {
+  color: var(--primary);
+  border-color: var(--border);
+  background: #ffffff;
 }
 
 
