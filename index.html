@@ -18,6 +18,10 @@
 </head>
 
 <body>
+    <div class="page-loader" id="pageLoader" aria-live="polite" aria-label="جارٍ تحميل الصفحة">
+        <div class="loader-ring"></div>
+        <div class="loader-brand">DIGITAL <span>DRAGON</span></div>
+    </div>
 
     <div class="top-bar">
         <div class="container top-bar-content">
@@ -51,8 +55,6 @@
                     <li><a href="Categories.html">التصنيفات</a></li>
                     <li><a href="offers.html">العروض</a></li>
                     <li><a href="about.html">عن المتجر</a></li>
-                     <li><a href="add-product.html">ضيف منتجك</a></li>
-
                     <li><a href="contact us.html">تواصل معنا</a></li>
                 </ul>
             </nav>
@@ -437,6 +439,17 @@
     </a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            const loader = document.getElementById("pageLoader");
+            if (!loader) return;
+
+            setTimeout(function () {
+                loader.classList.add("hidden");
+                document.body.classList.add("loaded");
+            }, 500);
+        });
+    </script>
 </body>
 
 </html>

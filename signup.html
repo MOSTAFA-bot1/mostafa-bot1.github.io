@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="auth-page">
+    <div class="page-loader" id="pageLoader" aria-live="polite" aria-label="جارٍ تحميل الصفحة">
+        <div class="loader-ring"></div>
+        <div class="loader-brand">DIGITAL <span>DRAGON</span></div>
+    </div>
     <header class="auth-header">
         <div class="container">
             <a href="index.html" class="logo">
@@ -88,6 +92,17 @@
                 else showTab("signin");
             }, 700);
         }));
+    </script>
+    <script>
+        window.addEventListener("load", function () {
+            const loader = document.getElementById("pageLoader");
+            if (!loader) return;
+
+            setTimeout(function () {
+                loader.classList.add("hidden");
+                document.body.classList.add("loaded");
+            }, 500);
+        });
     </script>
 </body>
 </html>

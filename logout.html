@@ -12,6 +12,10 @@
 </head>
 
 <body class="auth-page">
+    <div class="page-loader" id="pageLoader" aria-live="polite" aria-label="جارٍ تحميل الصفحة">
+        <div class="loader-ring"></div>
+        <div class="loader-brand">DIGITAL <span>DRAGON</span></div>
+    </div>
     <main class="auth-main">
         <section class="auth-panel" aria-live="polite">
             <div id="logout-status" class="auth-message">جارٍ تسجيل الخروج...</div>
@@ -31,6 +35,17 @@
         setTimeout(function () {
             window.location.replace("index.html");
         }, 700);
+    </script>
+    <script>
+        window.addEventListener("load", function () {
+            const loader = document.getElementById("pageLoader");
+            if (!loader) return;
+
+            setTimeout(function () {
+                loader.classList.add("hidden");
+                document.body.classList.add("loaded");
+            }, 500);
+        });
     </script>
     <a href="https://wa.me/966501234567" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب"><i class="fa-brands fa-whatsapp"></i></a>
 </body>

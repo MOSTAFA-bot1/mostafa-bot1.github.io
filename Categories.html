@@ -13,6 +13,10 @@
 </head>
 
 <body>
+	<div class="page-loader" id="pageLoader" aria-live="polite" aria-label="جارٍ تحميل الصفحة">
+		<div class="loader-ring"></div>
+		<div class="loader-brand">DIGITAL <span>DRAGON</span></div>
+	</div>
 	<div class="top-bar">
 		<div class="container top-bar-content">
 			<div class="top-right"><span><i class="fa-solid fa-headset"></i> دعم العملاء</span><span><i class="fa-solid fa-shield-halved"></i> ضمان استرجاع خلال 14 يوم</span></div>
@@ -64,5 +68,16 @@
 		<div class="footer-column"><h3>اشترك في نشرتنا البريدية</h3><p class="footer-text">احصل على أحدث العروض والمنتجات الجديدة.</p><div class="newsletter"><input type="email" placeholder="أدخل بريدك الإلكتروني"><button type="button">اشترك الآن</button></div></div>
 	</div></div><div class="footer-bottom"><div class="container">جميع الحقوق محفوظة © 2026 DIGITAL DRAGON</div></div></footer>
 	<a href="https://wa.me/966501234567" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="تواصل عبر واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+	<script>
+		window.addEventListener("load", function () {
+			const loader = document.getElementById("pageLoader");
+			if (!loader) return;
+
+			setTimeout(function () {
+				loader.classList.add("hidden");
+				document.body.classList.add("loaded");
+			}, 500);
+		});
+	</script>
 </body>
 </html>
