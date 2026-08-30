@@ -494,7 +494,7 @@ ul {
 ========================= */
 
 .main-header {
-  background: #ffffff;
+    background: #ffffff;
     border-bottom: 1px solid var(--border);
     padding: 15px 0;
 }
@@ -502,14 +502,9 @@ ul {
 .header-content {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 35px;
+    gap: 20px;
+    justify-content: space-between;
 }
-
-
-/* =========================
-   اللوجو
-========================= */
 
 .logo {
     display: flex;
@@ -547,15 +542,9 @@ ul {
     color: var(--gray);
 }
 
-
-/* =========================
-   القائمة
-========================= */
-
 .nav-menu {
-    flex: 1 1 100%;
-    order: 3;
-    width: 100%;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .nav-menu ul {
@@ -576,11 +565,6 @@ ul {
     color: var(--primary);
 }
 
-
-/* =========================
-   البحث
-========================= */
-
 .search-box {
     width: 300px;
     height: 44px;
@@ -589,6 +573,7 @@ ul {
     display: flex;
     align-items: center;
     overflow: hidden;
+    margin-left: auto;
 }
 
 .search-box input {
@@ -5040,11 +5025,10 @@ footer {
     justify-content: center;
 
     font-size: 32px;
+    text-decoration: none;
+    cursor: pointer;
 
     z-index: 9999;
-
-    /* الأيقونة للعرض فقط */
-    pointer-events: none;
 }
 
 /* =========================
@@ -6467,6 +6451,8 @@ footer {
     color: #ffffff;
 
     font-size: 30px;
+    text-decoration: none;
+    cursor: pointer;
 
     box-shadow: 0 8px 22px rgba(37, 211, 102, 0.3);
 

@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const whatsappButton = document.querySelector('.whatsapp-button');
+
+  if (whatsappButton) {
+    whatsappButton.addEventListener('click', () => {
+      window.location.href = 'contact.html';
+    });
+  }
+
   const contactForm = document.getElementById('contact');
 
   if (!contactForm) return;
