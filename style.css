@@ -60,22 +60,23 @@ body.loaded {
 
 .loader-ring {
     position: relative;
-    width: 220px;
-    height: 6px;
+    width: 250px;
+    height: 5px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
     overflow: hidden;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.16);
-    box-shadow: 0 0 20px rgba(138, 184, 255, 0.25);
 }
 
 .loader-ring::before {
     content: "";
     position: absolute;
-    inset: 0;
-    width: 40%;
-    border-radius: inherit;
-    background: linear-gradient(90deg, #8ab8ff, #5ad7b1, #8ab8ff);
-    animation: loadingLine 1.5s ease-in-out infinite;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #007bff;
+    border-radius: 4px;
+    animation: fill-line 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .loader-brand {
@@ -89,12 +90,18 @@ body.loaded {
     color: #8ab8ff;
 }
 
-@keyframes loadingLine {
+@keyframes fill-line {
     0% {
-        transform: translateX(-120%);
+        width: 0%;
+        left: 0;
+    }
+    50% {
+        width: 100%;
+        left: 0;
     }
     100% {
-        transform: translateX(260%);
+        width: 100%;
+        left: 100%;
     }
 }
 
